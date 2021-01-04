@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 ],
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 25),
               Container(
                 height: 50,
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -121,11 +121,13 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: BoxDecoration(
                   color: Colors.blue[900],
                   boxShadow: [
+
                     BoxShadow(
-                        color: Colors.grey[100],
+
+                        color: Colors.blue[100],
                         blurRadius: 20,
-                        offset: Offset(0.2, 0.3),
-                        spreadRadius: 10)
+                        offset: Offset(0.2, 0.2),
+                        spreadRadius: 3)
                   ],
                   borderRadius: BorderRadius.circular(25),
                 ),
@@ -165,7 +167,9 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {},
                             child: Row(
                               children: [
-                                FaIcon(FontAwesomeIcons.facebook, size: 20,),
+                                FaIcon(FontAwesomeIcons.facebook, size: 20, color: Colors.white,),
+                                SizedBox(width: 3,
+                                ),
 
 
                                 Text(
@@ -188,11 +192,12 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {},
                             child: Row(
                               children: [
-                                FaIcon(FontAwesomeIcons.google, size: 20,),
+                                FaIcon(FontAwesomeIcons.google, size: 20,color: Colors.white,),
+                                SizedBox(width: 3,),
                                 Text(
                                   "Google",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
+                                      color: Colors.white, fontSize: 12, ),
                                 )
                               ],
                             ),
