@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pdp_shared_preference/pages/sign_up.dart';
 
 class LoginPage extends StatefulWidget {
+  static final String id = "LoginPage";
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -121,9 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: BoxDecoration(
                   color: Colors.blue[900],
                   boxShadow: [
-
                     BoxShadow(
-
                         color: Colors.blue[100],
                         blurRadius: 20,
                         offset: Offset(0.2, 0.2),
@@ -161,17 +162,20 @@ class _LoginPageState extends State<LoginPage> {
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           margin: EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(59,89,152,1),
+                              color: Color.fromRGBO(59, 89, 152, 1),
                               borderRadius: BorderRadius.circular(10)),
                           child: FlatButton(
                             onPressed: () {},
                             child: Row(
                               children: [
-                                FaIcon(FontAwesomeIcons.facebook, size: 20, color: Colors.white,),
-                                SizedBox(width: 3,
+                                FaIcon(
+                                  FontAwesomeIcons.facebook,
+                                  size: 20,
+                                  color: Colors.white,
                                 ),
-
-
+                                SizedBox(
+                                  width: 3,
+                                ),
                                 Text(
                                   "Facebok",
                                   style: TextStyle(
@@ -192,12 +196,20 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {},
                             child: Row(
                               children: [
-                                FaIcon(FontAwesomeIcons.google, size: 20,color: Colors.white,),
-                                SizedBox(width: 3,),
+                                FaIcon(
+                                  FontAwesomeIcons.google,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 3,
+                                ),
                                 Text(
                                   "Google",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12, ),
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
                                 )
                               ],
                             ),
@@ -220,12 +232,18 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 12,
                           fontWeight: FontWeight.w500),
                     ),
-                    Text(
-                      "Sign Up ",
-                      style: TextStyle(
-                          color: Color.fromRGBO(59,89,152,1),
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      child: Text(
+                        "Sign Up ",
+                        style: TextStyle(
+                            color: Color.fromRGBO(59, 89, 152, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, SignUp.id);
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp(),));
+                      },
                     )
                   ],
                 ),
