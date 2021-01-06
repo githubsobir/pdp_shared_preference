@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
+          margin: EdgeInsets.fromLTRB(25, 6, 20, 6),
           child: Column(
             children: [
               Container(
@@ -160,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          margin: EdgeInsets.symmetric(horizontal: 15),
+                          margin: EdgeInsets.symmetric(horizontal: 11),
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(59, 89, 152, 1),
                               borderRadius: BorderRadius.circular(10)),
