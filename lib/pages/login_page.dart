@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pdp_shared_preference/pages/page4.dart';
 import 'package:pdp_shared_preference/pages/sign_up.dart';
+import 'package:pdp_shared_preference/services/pref_services.dart';
 
 class LoginPage extends StatefulWidget {
   static final String id = "LoginPage";
@@ -11,6 +14,27 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  _doLogin() {
+    setState(() {
+      String email = emailController.text.toString().trim();
+      String passwprd = passwordController.text.toString().trim();
+
+      PrefServices.loadUser().then((user) => {
+
+      if(user.email == email && user.password == passwprd){
+          Navigator.pushReplacementNamed(context, Page4.id),
+    }else{
+          EasyLoading.showError("Qayat urinib ko'ring"),
+      }
+      }
+      );
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +48,10 @@ class _LoginPageState extends State<LoginPage> {
                 margin: EdgeInsets.fromLTRB(10, 40, 10, 1),
                 padding: EdgeInsets.fromLTRB(10, 20, 10, 1),
                 height: 245,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     gradient: LinearGradient(begin: Alignment.center, colors: [
@@ -65,9 +92,11 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.white,
                 ),
                 child: TextField(
+                  controller: emailController,
                   cursorColor: Colors.blue,
                   decoration: InputDecoration(
                       focusColor: Colors.blue,
+                      hintText: "email",
                       border: InputBorder.none,
                       icon: Icon(
                         CupertinoIcons.person,
@@ -94,9 +123,11 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.white,
                 ),
                 child: TextField(
+                  controller: passwordController,
                   cursorColor: Colors.blue,
                   decoration: InputDecoration(
                       focusColor: Colors.blue,
+                      hintText: "password",
                       border: InputBorder.none,
                       icon: Icon(
                         CupertinoIcons.lock_open,
@@ -133,7 +164,9 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _doLogin();
+                  },
                   child: Text(
                     "LOG IN",
                     style: TextStyle(

@@ -1,10 +1,10 @@
 class User{
-  String id;
+  String id = '1';
   String name;
   String email;
   String phone;
   String password;
-  User({this.id, this.name, this.email, this.phone, this.password});
+  // User({this.id, this.name, this.email, this.phone, this.password});
   User.named({ this.name, this.email, this.phone, this.password});
 
   User.fromJson(Map<String, dynamic> json):

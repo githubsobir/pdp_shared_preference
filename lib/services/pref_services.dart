@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefServices{
 
-  static StoreUser (User user)async{
+  static storeUser (User user)async{
     SharedPreferences preferences =  await SharedPreferences.getInstance();
     String strUser = jsonEncode(user);
     preferences.setString("user",strUser);
@@ -21,9 +21,9 @@ static Future<User> loadUser() async{
     return User.fromJson(map);
 }
 
-  static Future<bool> removeUser() async{
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.remove("user");
-  }
+  // static Future<bool> removeUser() async{
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   preferences.remove("user");
+  // }
 
 }
